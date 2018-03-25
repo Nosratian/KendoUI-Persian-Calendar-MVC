@@ -1,0 +1,52 @@
+﻿@using Kendo.Mvc.UI
+
+@{
+    ViewBag.Title = "Telerik Kendo UI Persian Calendar";
+}
+
+<script type="text/javascript">
+    function onChangeCulture() {
+        var isChecked = $("#ChangeCulture").is(':checked');
+        if (isChecked) {
+            isPersianCulture = isChecked;
+        } else {
+            isPersianCulture = false;
+        }
+
+        if (localStorageSupport()) {
+            localStorage.setItem("isPersianCulture", isPersianCulture);
+        }
+
+        location.reload();
+    }
+</script>
+
+<br />
+<div class="k-rtl col-md-3">
+    @(Html.Kendo().CheckBox()
+          .Name("ChangeCulture")
+          .Checked(true)
+          .Label("تقویم فارسی")
+          .HtmlAttributes(new { onchange = "onChangeCulture();" })
+    )
+</div>
+<div class="k-rtl col-md-3">
+    @(Html.Kendo().DatePicker()
+          .Name("PersianDatePicker")
+          .Format("yyyy/MM/dd")
+          .Value("1397/01/05")
+    )
+</div>
+<div class="k-rtl">
+    @(Html.Kendo().Calendar()
+          .Name("PersianCalendar")
+          .Value(DateTime.Now)
+    )
+</div>
+<br />
+<script type="text/javascript">
+    $(function () {
+        var isChecked = (isPersianCulture == 'true' || isPersianCulture == true);
+        $("#ChangeCulture").prop('checked', isChecked);;
+    });
+</script>

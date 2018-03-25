@@ -1,0 +1,4 @@
+*.cs linguist-language=C#
+*.cshtml linguist-language=C#
+src/KendoPersianCalendar/Content/* linguist-vendored
+src/KendoPersianCalendar/Scripts/* linguist-vendored

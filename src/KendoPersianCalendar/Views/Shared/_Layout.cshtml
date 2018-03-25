@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/kendo/2018.1.221/css")
+    @Styles.Render("~/Content/css")
+
+    <link href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" language="javascript">
+        //set the Kendo UI culture
+        var isPersianCulture = true;
+    </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/kendo")
+
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.aspnetmvc.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jszip.min.js"></script>
+
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+</head>
+<body class="k-rtl">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("استفاده همزمان از تقویم فارسی و انگلیسی Kendo UI در برنامه های MVC", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "color: #FFF;" })
+            </div>
+            <div class="pull-right">
+                <a class="navbar-brand" href="https://github.com/MahdiNosratian/KendoUI-Persian-Calendar-MVC" style="color: #FFF;">Developer: Mahdi Nosratian</a>
+            </div>
+        </div>
+    </div>
+    <div class="body-content">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
